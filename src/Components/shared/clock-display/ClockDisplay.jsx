@@ -5,12 +5,12 @@ const ClockDisplay = ({ date, timezone, offset, title }) => {
   let offsetHr = offset / 60;
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{format(date, "yyy-mm-dd hh:mm:ss aaaa")}</p>
-      <p>
+      <h1>Title: {title}</h1>
+      <h2>{format(date, "yyy-mm-dd hh:mm:ss aaaa")}</h2>
+      <h3>
         {timezone}
         {offsetHr > 0 ? `+${Math.abs(offsetHr)}` : `-${Math.abs(offsetHr)}`}
-      </p>
+      </h3>
     </div>
   );
 };
