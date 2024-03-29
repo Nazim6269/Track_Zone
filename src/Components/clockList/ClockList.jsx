@@ -9,7 +9,7 @@ const ClockList = ({ clocks, updateClock }) => {
       {clocks.length === 0 ? (
         <p>There is no Clock, please add one</p>
       ) : (
-        <ul>
+        <div>
           {clocks.map((clock) => (
             <ClockListItem
               key={clock.id}
@@ -17,7 +17,7 @@ const ClockList = ({ clocks, updateClock }) => {
               updateClock={updateClock}
             />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { generate } from "shortid";
 import "./App.css";
-import LocalClock from "./Components/localClock/LocalClock";
 import ClockList from "./Components/clockList/ClockList";
+import LocalClock from "./Components/localClock/LocalClock";
 
 const LOCAL_CLOCK_INIT = {
   title: "My clock",
@@ -28,7 +28,13 @@ function App() {
     setClocks([...clocks, clock]);
   };
 
-  const updateClock = (updatedClock) => {};
+  const updateClock = (updatedClock) => {
+    const mappedClocks = clocks.map((clock) => {
+      if (clock.id === updatedClock.id) return updatedClock;
+      return clock;
+    });
+    setClocks(mappedClocks);
+  };
 
   return (
     <React.Fragment>

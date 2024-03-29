@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import ClockForm from "../clock-form/ClockForm";
 
-const timezoneArray = ["GMT", "UTC", "PST", "EST", "EDT", "BST", "MST"];
-
 const ClockActions = ({
   local = false,
   clock,
