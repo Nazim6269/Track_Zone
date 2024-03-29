@@ -3,7 +3,7 @@ import useClock from "../../hooks/useClock";
 import ClockActions from "../shared/clock-actions/ClockActions";
 import ClockDisplay from "../shared/clock-display/ClockDisplay";
 
-const ClockListItem = ({ clock, updateClock }) => {
+const ClockListItem = ({ clock, updateClock, deleteClock }) => {
   const { date } = useClock(clock.timezone, clock.offset);
 
   if (!date) return null;
@@ -15,7 +15,11 @@ const ClockListItem = ({ clock, updateClock }) => {
         offset={clock.offset}
         title={clock.title}
       />
-      <ClockActions clock={clock} updateClock={updateClock} />
+      <ClockActions
+        clock={clock}
+        updateClock={updateClock}
+        deleteClock={deleteClock}
+      />
     </div>
   );
 };

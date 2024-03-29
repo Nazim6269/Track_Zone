@@ -6,6 +6,7 @@ const ClockActions = ({
   clock,
   updateClock,
   createNewClock,
+  deleteClock,
 }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [isCreate, setIsCreate] = useState(false);
@@ -20,7 +21,7 @@ const ClockActions = ({
       {local ? (
         <button onClick={() => setIsCreate(!isCreate)}>Create</button>
       ) : (
-        <button>Delete</button>
+        <button onClick={() => deleteClock(clock.id)}>Delete</button>
       )}
 
       {isEdit && (

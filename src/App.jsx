@@ -36,6 +36,11 @@ function App() {
     setClocks(mappedClocks);
   };
 
+  const deleteClock = (id) => {
+    const filteredClocks = clocks.filter((clock) => clock.id !== id);
+    setClocks(filteredClocks);
+  };
+
   return (
     <React.Fragment>
       <LocalClock
@@ -44,7 +49,11 @@ function App() {
         createNewClock={createNewClock}
       />
 
-      <ClockList clocks={clocks} updateClock={updateClock} />
+      <ClockList
+        clocks={clocks}
+        updateClock={updateClock}
+        deleteClock={deleteClock}
+      />
     </React.Fragment>
   );
 }
