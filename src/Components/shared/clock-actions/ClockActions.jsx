@@ -3,22 +3,17 @@ import ClockForm from "../clock-form/ClockForm";
 
 const timezoneArray = ["GMT", "UTC", "PST", "EST", "EDT", "BST", "MST"];
 
-const ClockActions = ({ local = false, clock, updateClock }) => {
+const ClockActions = ({
+  local = false,
+  clock,
+  updateClock,
+  createNewClock,
+}) => {
   const [isEdit, setIsEdit] = useState(false);
   const [isCreate, setIsCreate] = useState(false);
 
-  // const handleChange = (e) => {
-  //   let { name, value } = e.target;
-  //   if (name === "offset") {
-  //     value = Number(value) * 60;
-  //   }
-  //   updateClock({
-  //     [name]: value,
-  //   });
-  // };
-
   const handleClock = (value) => {
-    console.log(value);
+    createNewClock(value);
   };
 
   return (
