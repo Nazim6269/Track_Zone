@@ -53,6 +53,7 @@ function App() {
         clocks={clocks}
         updateClock={updateClock}
         deleteClock={deleteClock}
+        localClock={localClock}
       />
     </React.Fragment>
   );
