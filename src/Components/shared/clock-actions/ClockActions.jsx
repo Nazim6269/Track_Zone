@@ -1,59 +1,52 @@
 import React, { useState } from "react";
-
-const defaultOffset = [
-  -11, -11.5, -10, -10.5, -10, -9.5, -9, -8.5, -8, -7.5, -7, -6.5, -6, 0, 1, 2,
-  3, 4, 5, 5.5, 6, 6.5,
-];
+import ClockForm from "../clock-form/ClockForm";
 
 const timezoneArray = ["GMT", "UTC", "PST", "EST", "EDT", "BST", "MST"];
 
 const ClockActions = ({ local = false, clock, updateClock }) => {
   const [isEdit, setIsEdit] = useState(false);
+  const [isCreate, setIsCreate] = useState(false);
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    if (name === "offset") {
-      value = parseInt(value) * 60;
-    }
-    updateClock({
-      [name]: value,
-    });
+  // const handleChange = (e) => {
+  //   let { name, value } = e.target;
+  //   if (name === "offset") {
+  //     value = Number(value) * 60;
+  //   }
+  //   updateClock({
+  //     [name]: value,
+  //   });
+  // };
+
+  const handleClock = (value) => {
+    console.log(value);
   };
 
   return (
     <div>
       {<button onClick={() => setIsEdit(!isEdit)}>Edit</button>}
-      {local ? <button>Create</button> : <button>Delete</button>}
+      {local ? (
+        <button onClick={() => setIsCreate(!isCreate)}>Create</button>
+      ) : (
+        <button>Delete</button>
+      )}
 
       {isEdit && (
-        <div>
-          <input
-            type="text"
-            name="title"
-            value={clock.title}
-            onChange={handleChange}
+        <>
+          <h3>Edit Clock</h3>
+          <ClockForm
+            handleClock={updateClock}
+            title={!local}
+            values={clock}
+            edit={true}
           />
-          <select name="timezone" onChange={handleChange} value={clock.timzone}>
-            {timezoneArray.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-          {(clock.timezone === "GMT" || clock.timezone === "UTC") && (
-            <select
-              name="offset"
-              onChange={handleChange}
-              value={clock.offset / 60}
-            >
-              {defaultOffset.map((item, index) => (
-                <option key={index} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          )}
-        </div>
+        </>
+      )}
+
+      {isCreate && (
+        <>
+          <h3>Create Clock</h3>
+          <ClockForm handleClock={handleClock} />
+        </>
       )}
     </div>
   );
