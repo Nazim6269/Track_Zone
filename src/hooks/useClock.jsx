@@ -1,6 +1,14 @@
 import { addMinutes } from "date-fns";
 import { useEffect, useState } from "react";
 import { TIMEZONE_OFFSET } from "../constants/timezone";
+import PropTypes from "prop-types";
+
+/**
+ * useClock is a custom hook that provides date, timezone, and offset based on the given timezone.
+ * @param {string} [timezone] - The timezone representing the timezone of the clock.
+ * @param {number} [offset=0] - The offset representing the time difference from UTC in minutes.
+ * @returns {Object} An object containing date, date in UTC, offset, and timezone.
+ */
 
 const useClock = (timezone, offset = 0) => {
   const [localDate, setLocalDate] = useState(null);
@@ -38,6 +46,11 @@ const useClock = (timezone, offset = 0) => {
     offset: offset || -localOffset,
     timezone: timezone || localTimezone,
   };
+};
+
+useClock.propTypes = {
+  timezone: PropTypes.string,
+  offset: PropTypes.number,
 };
 
 export default useClock;

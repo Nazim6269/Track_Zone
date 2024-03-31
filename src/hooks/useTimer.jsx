@@ -1,5 +1,12 @@
 import { addSeconds } from "date-fns";
-import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+
+/**
+ * A custom hook for creating a timer based on a provided date.
+ * @param {Date} date - The initial date for the timer.
+ * @returns {Date|null} The current timer value.
+ */
 
 const useTimer = (date) => {
   const [timer, setTimer] = useState(null);
@@ -22,6 +29,10 @@ const useTimer = (date) => {
   }, [timer]);
 
   return timer;
+};
+
+useTimer.propTypes = {
+  date: PropTypes.instanceOf(Date),
 };
 
 export default useTimer;
