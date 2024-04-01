@@ -1,7 +1,17 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { TIMEZONE_OFFSET } from "../../../constants/timezone";
 import { getOffset } from "../../../utils/timezone";
 
+/**
+ *
+ * @param {Object} props
+ * @param {Object} props.values - values object with title, timezone and offset property
+ * @param {Function} props.handleClock - handleClock funciton acts for state lifting
+ * @param {String | boolean} props.title
+ * @param {}
+ * @returns {JSX.Element}
+ */
 const ClockForm = ({
   values = { title: "", timezone: "GMT", offset: 0 },
   handleClock,
@@ -87,6 +97,18 @@ const ClockForm = ({
       <button>{edit ? "Update" : "Create"}</button>
     </form>
   );
+};
+
+//defining prop types below
+ClockForm.propTypes = {
+  values: PropTypes.shape({
+    title: PropTypes.string,
+    timezone: PropTypes.string,
+    offset: PropTypes.number,
+  }),
+  handleClock: PropTypes.func,
+  title: PropTypes.string || PropTypes.bool,
+  edit: PropTypes.bool,
 };
 
 export default ClockForm;
