@@ -4,12 +4,12 @@ import { TIMEZONE_OFFSET } from "../../../constants/timezone";
 import { getOffset } from "../../../utils/timezone";
 
 /**
- *
+ * this component is used to crate clock form
  * @param {Object} props
  * @param {Object} props.values - values object with title, timezone and offset property
  * @param {Function} props.handleClock - handleClock funciton acts for state lifting
  * @param {String | boolean} props.title
- * @param {}
+ * @param {boolean} props.edit
  * @returns {JSX.Element}
  */
 const ClockForm = ({
