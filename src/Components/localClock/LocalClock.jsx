@@ -31,12 +31,14 @@ const LocalClock = ({ clock, updateLocalClock, createNewClock }) => {
           title={clock.title}
         />
       )}
-      <ClockActions
-        local={true}
-        clock={clock}
-        updateClock={updateLocalClock}
-        createNewClock={createNewClock}
-      />
+      <div className="mt-4">
+        <ClockActions
+          local={true}
+          clock={clock}
+          updateClock={updateLocalClock}
+          createNewClock={createNewClock}
+        />
+      </div>
     </div>
   );
 };

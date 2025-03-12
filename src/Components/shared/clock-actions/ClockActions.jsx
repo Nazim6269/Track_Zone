@@ -32,31 +32,53 @@ const ClockActions = ({
   };
 
   return (
-    <div>
-      {<button onClick={() => setIsEdit(!isEdit)}>Edit</button>}
-      {local ? (
-        <button onClick={() => setIsCreate(!isCreate)}>Create</button>
-      ) : (
-        <button onClick={() => deleteClock(clock.id)}>Delete</button>
-      )}
+    <div className="bg-white shadow-md rounded-lg border p-6 space-y-4 max-w-md mx-auto">
+      <div className="flex space-x-4">
+        <button
+          onClick={() => setIsEdit(!isEdit)}
+          className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+        >
+          Edit
+        </button>
+
+        {local ? (
+          <button
+            onClick={() => setIsCreate(!isCreate)}
+            className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
+          >
+            Create
+          </button>
+        ) : (
+          <button
+            onClick={() => deleteClock(clock.id)}
+            className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition"
+          >
+            Delete
+          </button>
+        )}
+      </div>
 
       {isEdit && (
-        <>
-          <h3>Edit Clock</h3>
+        <div className="mt-4 p-4 border rounded-lg">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            Edit Clock
+          </h3>
           <ClockForm
             handleClock={updateClock}
             title={!local}
             values={clock}
             edit={true}
           />
-        </>
+        </div>
       )}
 
       {isCreate && (
-        <>
-          <h3>Create Clock</h3>
+        <div className="mt-4 p-4 border rounded-lg">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            Create Clock
+          </h3>
           <ClockForm handleClock={handleClock} />
-        </>
+        </div>
       )}
     </div>
   );

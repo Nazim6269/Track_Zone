@@ -13,13 +13,17 @@ import ClockListItem from "./ClockListItem";
  */
 const ClockList = ({ clocks, updateClock, deleteClock, localClock }) => {
   return (
-    <div>
-      <h3>Other Clocks</h3>
-      <hr />
+    <div className="bg-gray-300 shadow-md rounded-lg p-6 max-w-2xl mx-auto">
+      <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        Other Clocks
+      </h3>
+      <hr className="border-t-2 border-gray-200 mb-4" />
       {clocks.length === 0 ? (
-        <p>There is no Clock, please add one</p>
+        <p className="text-gray-500 italic">
+          There is no clock, please add one.
+        </p>
       ) : (
-        <div>
+        <div className="space-y-4">
           {clocks.map((clock) => (
             <ClockListItem
               key={clock.id}

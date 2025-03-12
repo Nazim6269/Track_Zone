@@ -48,25 +48,40 @@ const ClockForm = ({
   }, [formValues.timezone]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto space-y-4"
+    >
       <div>
-        <label htmlFor="title">Enter Your Title</label>
+        <label
+          htmlFor="title"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Enter Your Title
+        </label>
         <input
           type="text"
           id="title"
           name="title"
           disabled={!title}
           onChange={handleChange}
+          className="w-full p-2 border rounded-lg text-gray-800 disabled:bg-gray-200"
         />
       </div>
 
       <div>
-        <label htmlFor="timezone">Enter Your Timezone</label>
+        <label
+          htmlFor="timezone"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Enter Your Timezone
+        </label>
         <select
           id="timezone"
           name="timezone"
           value={formValues.timezone}
           onChange={handleChange}
+          className="w-full p-2 border rounded-lg text-gray-800 bg-white"
         >
           <option value="UTC">UTC</option>
           <option value="GMT">GMT</option>
@@ -79,11 +94,17 @@ const ClockForm = ({
 
       {(formValues.timezone === "GMT" || formValues.timezone === "UTC") && (
         <div>
-          <label htmlFor="offset">Enter Your Offset</label>
+          <label
+            htmlFor="offset"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Enter Your Offset
+          </label>
           <select
             name="offset"
             value={formValues.offset / 60}
             onChange={handleChange}
+            className="w-full p-2 border rounded-lg text-gray-800 bg-white"
           >
             {getOffset().map((item) => (
               <option key={item} value={item}>
@@ -94,7 +115,12 @@ const ClockForm = ({
         </div>
       )}
 
-      <button>{edit ? "Update" : "Create"}</button>
+      <button
+        type="submit"
+        className="w-full bg-slate-700 text-white py-2 rounded-lg hover:bg-slate-800 transition"
+      >
+        {edit ? "Update" : "Create"}
+      </button>
     </form>
   );
 };

@@ -42,20 +42,26 @@ function App() {
   };
 
   return (
-    <React.Fragment>
-      <LocalClock
-        clock={localClock}
-        updateLocalClock={updateLocalClock}
-        createNewClock={createNewClock}
-      />
+    <div className="flex justify-between px-8 bg-amber-300 gap-8">
+      {/* Left - Local Clock */}
+      <div className="w-1/4 bg-white shadow-md rounded-lg p-6">
+        <LocalClock
+          clock={localClock}
+          updateLocalClock={updateLocalClock}
+          createNewClock={createNewClock}
+        />
+      </div>
 
-      <ClockList
-        clocks={clocks}
-        updateClock={updateClock}
-        deleteClock={deleteClock}
-        localClock={localClock}
-      />
-    </React.Fragment>
+      {/* Right - Clock List */}
+      <div className="w-3/4 bg-white  shadow-md rounded-lg p-6">
+        <ClockList
+          clocks={clocks}
+          updateClock={updateClock}
+          deleteClock={deleteClock}
+          localClock={localClock}
+        />
+      </div>
+    </div>
   );
 }
 

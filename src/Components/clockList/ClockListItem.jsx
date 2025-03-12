@@ -21,14 +21,16 @@ const ClockListItem = ({ clock, updateClock, deleteClock, localClock }) => {
 
   if (!date || !timer) return null;
   return (
-    <div>
+    <div className="bg-white shadow-md rounded-lg p-6 max-w-md mx-auto space-y-4">
       <ClockDisplay
         date={timer}
         timezone={clock.timezone}
         offset={clock.offset}
         title={clock.title}
       />
-      <h3>{formatDistance(localClock, timer)}</h3>
+      <h3 className="text-xl font-medium text-gray-800">
+        {formatDistance(localClock, timer)}
+      </h3>
       <ClockActions
         clock={clock}
         updateClock={updateClock}

@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.13",
     "date-fns": "^3.6.0",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "shortid": "^2.2.16",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "tailwindcss": "^4.0.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

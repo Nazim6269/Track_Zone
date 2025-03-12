@@ -15,11 +15,13 @@ import React from "react";
 const ClockDisplay = ({ date, timezone, offset, title }) => {
   let offsetHr = offset / 60;
   return (
-    <div>
-      <h1>Title: {title}</h1>
-      <h2>{format(date, "yyy-mm-dd hh:mm:ss aaaa")}</h2>
-      <h3>
-        {timezone}
+    <div className="bg-white shadow-lg rounded-lg p-6 max-w-sm mx-auto">
+      <h1 className="text-2xl font-bold text-gray-800 mb-2">Title: {title}</h1>
+      <h2 className="text-lg text-gray-600 mb-4">
+        {format(date, "yyy-MM-dd hh:mm:ss aaaa")}
+      </h2>
+      <h3 className="text-sm text-gray-500">
+        {timezone}{" "}
         {offsetHr > 0 ? `+${Math.abs(offsetHr)}` : `-${Math.abs(offsetHr)}`}
       </h3>
     </div>
