@@ -22,7 +22,7 @@ const LocalClock = ({ clock, updateLocalClock, createNewClock }) => {
   }, [date]);
 
   return (
-    <div>
+    <div className="bg-gray-200 flex-1 shadow-md rounded-lg p-6">
       {timer && (
         <ClockDisplay
           date={timer}

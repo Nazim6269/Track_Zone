@@ -32,26 +32,26 @@ const ClockActions = ({
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg border p-6 space-y-4 max-w-md mx-auto">
+    <div className="bg-white shadow-md rounded-lg  py-4 px-3 space-y-4 max-w-full mx-auto">
       <div className="flex space-x-4">
         <button
           onClick={() => setIsEdit(!isEdit)}
-          className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+          className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-sm hover:bg-blue-700 transition"
         >
-          Edit
+          Update
         </button>
 
         {local ? (
           <button
             onClick={() => setIsCreate(!isCreate)}
-            className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
+            className="flex-1 bg-green-600 text-white py-2 px-4 rounded-sm hover:bg-green-700 transition"
           >
-            Create
+            Add
           </button>
         ) : (
           <button
             onClick={() => deleteClock(clock.id)}
-            className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition"
+            className="flex-1 bg-red-600 text-white py-2 px-4 rounded-sm hover:bg-red-700 transition"
           >
             Delete
           </button>

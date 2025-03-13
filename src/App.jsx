@@ -3,6 +3,8 @@ import { generate } from "shortid";
 import "./App.css";
 import ClockList from "./Components/clockList/ClockList";
 import LocalClock from "./Components/localClock/LocalClock";
+import Footer from "./Components/navbar/Footer";
+import Navbar from "./Components/navbar/Navbar";
 
 const LOCAL_CLOCK_INIT = {
   title: "My clock",
@@ -42,18 +44,21 @@ function App() {
   };
 
   return (
-    <div className="flex justify-between px-8 bg-amber-300 gap-8">
-      {/* Left - Local Clock */}
-      <div className="w-1/4 bg-white shadow-md rounded-lg p-6">
+    <div className="flex flex-col h-screen">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content */}
+      <div className="flex flex-col md:flex md:flex-row  flex-grow justify-between px-5 lg:px-18 py-6 bg-gray-300 gap-8">
+        {/* Left - Local Clock */}
         <LocalClock
           clock={localClock}
           updateLocalClock={updateLocalClock}
           createNewClock={createNewClock}
         />
-      </div>
 
-      {/* Right - Clock List */}
-      <div className="w-3/4 bg-white  shadow-md rounded-lg p-6">
+        {/* Right - Clock List */}
+
         <ClockList
           clocks={clocks}
           updateClock={updateClock}
@@ -61,6 +66,9 @@ function App() {
           localClock={localClock}
         />
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
