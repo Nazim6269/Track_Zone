@@ -130,7 +130,7 @@ Deployed on Vercel for instant global access.
 
 ## 👨‍💻 Author
 
-Nazim Uddin
+Nazim Uddin  
 Front-End Developer | React & Next.js Enthusiast
 
 - 🌐 [Portfolio](https://portfolio-nextjs-one-tau.vercel.app/)
